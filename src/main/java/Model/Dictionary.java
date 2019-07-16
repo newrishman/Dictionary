@@ -51,7 +51,7 @@ public class Dictionary {
         final List<String> f1 = new ArrayList<>(); //fuck
         f1.add("блядь");
         f1.add("трахаться");
-        f1.add("тыою мать");
+        f1.add("твою мать");
         final List<String> f2 = new ArrayList<>(); //flowers
         f2.add("цветочек");
         f2.add("цветок");
