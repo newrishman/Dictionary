@@ -70,8 +70,8 @@ public class Dictionary {
         search.put("ecstasy", e2);
         search.put("fuck", f1);
         search.put("flowers", f2);
-        List<String> wordList = search.get(word);
-        System.out.println(wordList);
+
+        System.out.println(search.get(word));
 
     }
 }
