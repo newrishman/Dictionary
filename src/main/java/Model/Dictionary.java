@@ -97,7 +97,6 @@ public class Dictionary {
             for (Set set : rus) {
                 if (set.contains(word) == true) {
                     System.out.println(searchEn.get(set));
-
                 }
             }
         }
