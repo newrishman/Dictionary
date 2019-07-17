@@ -5,8 +5,9 @@ import java.util.stream.Collectors;
 
 public class Dictionary {
     public static void main(String[] args) {
-        UserInput word = new UserInput();
 
+        UserInput userInput = new UserInput();
+        String word = userInput.input();
 
 
         final Set<String> a1 = new LinkedHashSet<>(); //animal
@@ -86,27 +87,20 @@ public class Dictionary {
         searchRu.put("fuck", f1);
 
 
-
         Map<Set<String>, String> searchEn =
                 searchRu.entrySet()
                         .stream()
                         .collect(Collectors.toMap(Map.Entry::getValue, Map.Entry::getKey));
+        if (searchRu.get(word) != null) {
+            System.out.println(searchRu.get(word));
+        } else {
+            for (Set set : rus) {
+                if (set.contains(word) == true) {
+                    System.out.println(searchEn.get(set));
 
-UserInput userInput = new UserInput();
-
-if(searchRu.get(userInput.input()) != null){
-    System.out.println(searchRu.get(userInput.input()));
-}
-else {
-    for(Set set : rus){
-        if(set.contains(userInput.input()) != false){
-            System.out.println(searchEn.get(userInput.input()));
+                }
+            }
         }
-        else {
-            System.out.println("Нет такого слова");
-        }
-    }
-}
     }
 }
 
