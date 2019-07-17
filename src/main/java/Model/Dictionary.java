@@ -1,78 +1,76 @@
 package Model;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Dictionary {
+    public static void main(String[] args) {
+        UserInput word = new UserInput();
 
-    public void dictionary(String word) {
 
 
-        final List<String> a1 = new ArrayList<>(); //animal
+        final Set<String> a1 = new LinkedHashSet<>(); //animal
         a1.add("животное");
         a1.add("зверь");
         a1.add("скотина");
-        final List<String> a2 = new ArrayList<>(); //action
+        final Set<String> a2 = new LinkedHashSet<>(); //action
         a2.add("действие");
         a2.add("акция");
         a2.add("деятельность");
-        final List<String> b1 = new ArrayList<>(); //business
+        final Set<String> b1 = new LinkedHashSet<>(); //business
         b1.add("бизнес");
         b1.add("дело");
         b1.add("занятие");
-        final List<String> b2 = new ArrayList<>(); //because
+        final Set<String> b2 = new LinkedHashSet<>(); //because
         b2.add("потому что");
         b2.add("так как");
         b2.add("ибо");
-        final List<String> c1 = new ArrayList<>(); //civilization
+        final Set<String> c1 = new LinkedHashSet<>(); //civilization
         c1.add("цивилизация");
         c1.add("культура");
         c1.add("цивилизованный мир");
-        final List<String> c2 = new ArrayList<>(); //cock
+        final Set<String> c2 = new LinkedHashSet<>(); //cock
         c2.add("петух");
         c2.add("кран");
         c2.add("хуй"); // это по словарю!!!
-        final List<String> d1 = new ArrayList<>(); //dickhead
+        final Set<String> d1 = new LinkedHashSet<>(); //dickhead
         d1.add("залупа");
-        final List<String> d2 = new ArrayList<>(); //damn
+        final Set<String> d2 = new LinkedHashSet<>(); //damn
         d2.add("черт");
         d2.add("проклинать");
         d2.add("черт побери");
-        final List<String> e1 = new ArrayList<>(); //enjoy
+        final Set<String> e1 = new LinkedHashSet<>(); //enjoy
         e1.add("наслаждаться");
         e1.add("пользоваться");
         e1.add("обладать");
-        final List<String> e2 = new ArrayList<>(); //ecstasy
+        final Set<String> e2 = new LinkedHashSet<>(); //ecstasy
         e2.add("экстаз");
         e2.add("исступление");
         e2.add("исступленный восторг");
-        final List<String> f1 = new ArrayList<>(); //fuck
+        final Set<String> f1 = new LinkedHashSet<>(); //fuck
         f1.add("блядь");
         f1.add("трахаться");
         f1.add("твою мать");
-        final List<String> f2 = new ArrayList<>(); //flowers
+        final Set<String> f2 = new LinkedHashSet<>(); //flowers
         f2.add("цветочек");
         f2.add("цветок");
         f2.add("цветение");
 
-        Map<String, List<String>> search = new HashMap<>();
-        search.put("animal", a1);
+        Map<String, Set<String>> search = new TreeMap<>();
         search.put("action", a2);
-        search.put("business", b1);
+        search.put("animal", a1);
         search.put("because", b2);
+        search.put("business", b1);
         search.put("civilization", c1);
         search.put("cock", c2);
-        search.put("dickhead", d1);
         search.put("damn", d2);
-        search.put("enjoy", e1);
+        search.put("dickhead", d1);
         search.put("ecstasy", e2);
-        search.put("fuck", f1);
+        search.put("enjoy", e1);
         search.put("flowers", f2);
+        search.put("fuck", f1);
 
-        System.out.println(search.get(word));
-
+        System.out.println(search.get(word.input()));
     }
 }
+
 
