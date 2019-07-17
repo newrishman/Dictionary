@@ -1,6 +1,7 @@
 package Model;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Dictionary {
     public static void main(String[] args) {
@@ -55,21 +56,57 @@ public class Dictionary {
         f2.add("цветок");
         f2.add("цветение");
 
-        Map<String, Set<String>> search = new TreeMap<>();
-        search.put("action", a2);
-        search.put("animal", a1);
-        search.put("because", b2);
-        search.put("business", b1);
-        search.put("civilization", c1);
-        search.put("cock", c2);
-        search.put("damn", d2);
-        search.put("dickhead", d1);
-        search.put("ecstasy", e2);
-        search.put("enjoy", e1);
-        search.put("flowers", f2);
-        search.put("fuck", f1);
+        Set<Set<String>> rus = new LinkedHashSet<>();
+        rus.add(a1);
+        rus.add(a2);
+        rus.add(b1);
+        rus.add(b2);
+        rus.add(c1);
+        rus.add(c2);
+        rus.add(d1);
+        rus.add(d2);
+        rus.add(e1);
+        rus.add(e2);
+        rus.add(f1);
+        rus.add(f2);
 
-        System.out.println(search.get(word.input()));
+
+        Map<String, Set<String>> searchRu = new TreeMap<>();
+        searchRu.put("action", a2);
+        searchRu.put("animal", a1);
+        searchRu.put("because", b2);
+        searchRu.put("business", b1);
+        searchRu.put("civilization", c1);
+        searchRu.put("cock", c2);
+        searchRu.put("damn", d2);
+        searchRu.put("dickhead", d1);
+        searchRu.put("ecstasy", e2);
+        searchRu.put("enjoy", e1);
+        searchRu.put("flowers", f2);
+        searchRu.put("fuck", f1);
+
+
+
+        Map<Set<String>, String> searchEn =
+                searchRu.entrySet()
+                        .stream()
+                        .collect(Collectors.toMap(Map.Entry::getValue, Map.Entry::getKey));
+
+UserInput userInput = new UserInput();
+
+if(searchRu.get(userInput.input()) != null){
+    System.out.println(searchRu.get(userInput.input()));
+}
+else {
+    for(Set set : rus){
+        if(set.contains(userInput.input()) != false){
+            System.out.println(searchEn.get(userInput.input()));
+        }
+        else {
+            System.out.println("Нет такого слова");
+        }
+    }
+}
     }
 }
 
