@@ -100,10 +100,11 @@ public class Dictionary4 {
                     // search translations for russian word
 
                     Map<Set<String>, String> searchEn = searchRu.entrySet()
-                            .stream()
-                            .filter(e -> e.getValue().equals())
-                            .map(e -> e.getKey())
-                            .findFirst();
+
+                    boolean anyMatch = searchEn.stream().anyMatch(«searchEn.getValue().contains(word)»::equals)
+                    if (anyMatch == true){
+                    System.out.println(searchEn.getKey());
+                    }
 
 
 
