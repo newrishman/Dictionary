@@ -60,19 +60,6 @@ public class Dictionary4 {
         f2.add("цветок");
         f2.add("цветение");
 
-        Set<Set<String>> rus = new LinkedHashSet<>();
-        rus.add(a1);
-        rus.add(a2);
-        rus.add(b1);
-        rus.add(b2);
-        rus.add(c1);
-        rus.add(c2);
-        rus.add(d1);
-        rus.add(d2);
-        rus.add(e1);
-        rus.add(e2);
-        rus.add(f1);
-        rus.add(f2);
 
         Map<String, Set<String>> searchRu = new TreeMap<>();
         searchRu.put("action", a2);
