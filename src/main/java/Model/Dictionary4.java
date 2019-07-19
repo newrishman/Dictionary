@@ -1,10 +1,8 @@
 package Model;
 
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
-import static java.util.Arrays.stream;
+
 
 public class Dictionary4 {
 
@@ -12,6 +10,8 @@ public class Dictionary4 {
 
         UserInput userInput = new UserInput();
         String word = userInput.input();
+
+
 
         final Set<String> a1 = new LinkedHashSet<>(); //animal
         a1.add("животное");
@@ -88,29 +88,15 @@ public class Dictionary4 {
         searchRu.put("flowers", f2);
         searchRu.put("fuck", f1);
 
-        // search english word in dictionary
-        if (searchRu.get(word) != null) {
-            System.out.println(searchRu.get(word));
-        } else {
-
-            // search russian word in dictionary
-            for (Set set : rus) {
-                if (set.contains(word) == true) {
-
-                    // search translations for russian word
-
-                    Map<Set<String>, String> searchEn = searchRu.entrySet()
-
-                    boolean anyMatch = searchEn.stream().anyMatch(«searchEn.getValue().contains(word)»::equals)
-                    if (anyMatch == true){
-                    System.out.println(searchEn.getKey());
-                    }
+for (Map.Entry<String, Set<String>> entry : searchRu.entrySet() ){
+    if(entry.getValue().contains(word)){
+        System.out.println(entry.getKey());
+    }
+//
+}
 
 
 
-                }
-            }
-        }
     }
 }
 

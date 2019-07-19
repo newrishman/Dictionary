@@ -94,7 +94,7 @@ public class Dictionary3 {
 
             // search russian word in dictionary
             for (Set set : rus) {
-                if (set.contains(word) == true) {
+                if (set.contains(word)) {
 
                     // search translations for russian word
                     for (Map.Entry<String, Set<String>> RuToEn : searchRu.entrySet()) {
@@ -109,3 +109,4 @@ public class Dictionary3 {
         }
     }
 }
+

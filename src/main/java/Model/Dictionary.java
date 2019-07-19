@@ -97,7 +97,7 @@ public class Dictionary {
             System.out.println(searchRu.get(word));
         } else {
             for (Set set : rus) {
-                if (set.contains(word) == true) {
+                if (set.contains(word)) {
                     System.out.println(searchEn.get(set));
                 }
             }
