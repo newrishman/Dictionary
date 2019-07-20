@@ -49,6 +49,7 @@ public class Dictionary5 {
         ru.put("добрый день", en3);
         ru.put("хорошего дня", en4);
 
+        System.out.println(ru);
         System.out.println(inverted(ru));
 
     }
@@ -91,12 +92,12 @@ public class Dictionary5 {
 
         // Создаю новый Map, заполняя его новыми Key и Value
 
-        Map<String, Set<String>> invert = new LinkedHashMap<>();
-        invert.put(En.get(0), ru1);
-        invert.put(En.get(1), ru2);
-        invert.put(En.get(2), ru3);
+        Map<String, Set<String>> en = new LinkedHashMap<>();
+        en.put(En.get(0), ru1);
+        en.put(En.get(1), ru2);
+        en.put(En.get(2), ru3);
 
-        return invert;
+        return en;
     }
 
 }
