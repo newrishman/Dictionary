@@ -32,7 +32,7 @@ public class TestSQLDictionary {
             String result = null;
 
             while (resultSet.next()) {
-                result = resultSet.getString("English");
+                result = resultSet.getString(1);
                 System.out.println(result);
             }
             // * * * * если искомого слова среди русских нет * * * *  //
@@ -49,7 +49,7 @@ public class TestSQLDictionary {
 
                 String result2 = null;
                 while (resultSet.next()) {
-                    result2 = resultSet.getString("Russians");
+                    result2 = resultSet.getString(1);
                     System.out.println(result2);
                 }
 
