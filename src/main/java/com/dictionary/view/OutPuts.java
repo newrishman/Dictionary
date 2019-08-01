@@ -13,16 +13,19 @@ public class OutPuts {
             "Введите команду и слово:";
     private final String unknown = "Данное слово отсутствует в словаре.";
     private final String record = "Перевод данного слова успешно записан.";
+    private final String search = "Такого слова не найдено. Возможно Вы имели ввиду: \n";
 
     public void message(int x) {
-String a;
-if (x==1){
-    a = begin;
-} else if (x==2){
-    a = unknown;
-} else {
-    a = record;
-}
+        String a;
+        if (x == 1) {
+            a = begin;
+        } else if (x == 2) {
+            a = unknown;
+        } else if (x == 3) {
+            a = record;
+        } else {
+            a = search;
+        }
         System.out.println(a);
     }
 
