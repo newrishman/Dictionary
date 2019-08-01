@@ -1,6 +1,5 @@
 package allDictionary;
 
-import allDictionary.dictionary1.UserInput;
 
 import java.util.*;
 
