@@ -21,10 +21,8 @@ public class OutPuts {
             a = begin;
         } else if (x == 2) {
             a = unknown;
-        } else if (x == 3) {
-            a = record;
         } else {
-            a = search;
+            a = record;
         }
         System.out.println(a);
     }
@@ -32,5 +30,9 @@ public class OutPuts {
     public void translation(String a, String b, Set<?> set) {
         String trans = a + " - " + b + " слово. Перевод: " + set;
         System.out.println(trans);
+    }
+
+    public void variants(Set<?> set) {
+        System.out.println(search + " " +set);
     }
 }

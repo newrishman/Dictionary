@@ -10,18 +10,12 @@ import java.util.Set;
 public class EnglishDaoJdbc implements EnglishDao {
     Connection connection;
 
-
     @Override
-    public Set<?> findByName(String word) {
+    public Set<?> findByName(String command, String word) {
         Service service = new Service();
         connection = service.getConnection();
         Set<EnglishWord> engWord = new LinkedHashSet<>();
-        final String command = "SELECT Rus.Russians " +
-                "FROM `Eng` JOIN `Eng-Ru` ON `Eng`.`idEng` = `Eng-Ru`.`idEng` " +
-                "JOIN `Rus` ON `Eng-Ru`.`idRus` = `Rus`.`idRus` " +
-                "WHERE Eng.English = ?;";
 
-        PreparedStatement preparedStatement;
         try {
             ResultSet resultSet = service.resultSet(command, word);
 
