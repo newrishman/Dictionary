@@ -1,4 +1,4 @@
-package model;
+package allDictionary;
 
 import java.util.*;
 

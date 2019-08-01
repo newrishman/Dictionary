@@ -1,4 +1,4 @@
-package model;
+package allDictionary;
 
 import java.util.LinkedHashSet;
 import java.util.Map;
