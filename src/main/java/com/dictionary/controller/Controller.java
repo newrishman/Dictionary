@@ -17,11 +17,11 @@ public class Controller {
     RussianDao rusDao = new RussianDaoJdbc();
     EnglishDao engDao = new EnglishDaoJdbc();
     OutPuts outPuts = new OutPuts();
-
+    UserInputResult userInputResult = new UserInputResult();
 
     public void input() {
         outPuts.message(1);
-        UserInputResult userInputResult = new UserInputResult();
+
 
         inputs = userInputResult.inputs();
         command = inputs[0];
