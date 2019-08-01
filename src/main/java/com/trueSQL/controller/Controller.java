@@ -2,9 +2,9 @@
 package com.trueSQL.controller;
 
 import com.trueSQL.dao.*;
-import com.trueSQL.View.OutPuts;
+import com.trueSQL.view.OutPuts;
 import com.trueSQL.model.RussianWord;
-import com.trueSQL.View.UserInputResult;
+import com.trueSQL.view.UserInputResult;
 
 import java.util.Set;
 
