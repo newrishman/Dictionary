@@ -1,16 +1,13 @@
-package Model;
+package model;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
-
-
-public class Dictionary4 {
-
+public class Dictionary {
     public static void main(String[] args) {
 
         UserInput userInput = new UserInput();
         String word = userInput.input();
-
 
 
         final Set<String> a1 = new LinkedHashSet<>(); //animal
@@ -60,6 +57,20 @@ public class Dictionary4 {
         f2.add("цветок");
         f2.add("цветение");
 
+        Set<Set<String>> rus = new LinkedHashSet<>();
+        rus.add(a1);
+        rus.add(a2);
+        rus.add(b1);
+        rus.add(b2);
+        rus.add(c1);
+        rus.add(c2);
+        rus.add(d1);
+        rus.add(d2);
+        rus.add(e1);
+        rus.add(e2);
+        rus.add(f1);
+        rus.add(f2);
+
 
         Map<String, Set<String>> searchRu = new TreeMap<>();
         searchRu.put("action", a2);
@@ -75,15 +86,22 @@ public class Dictionary4 {
         searchRu.put("flowers", f2);
         searchRu.put("fuck", f1);
 
-for (Map.Entry<String, Set<String>> entry : searchRu.entrySet() ){
-    if(entry.getValue().contains(word)){
-        System.out.println(entry.getKey());
-    }
-//
-}
+        // go to Dictionary2
+        Map<Set<String>, String> searchEn =
+                searchRu.entrySet()
+                        .stream()
+                        .collect(Collectors.toMap(Map.Entry::getValue, Map.Entry::getKey));
 
 
-
+        if (searchRu.get(word) != null) {
+            System.out.println(searchRu.get(word));
+        } else {
+            for (Set set : rus) {
+                if (set.contains(word)) {
+                    System.out.println(searchEn.get(set));
+                }
+            }
+        }
     }
 }
 

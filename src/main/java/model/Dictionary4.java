@@ -1,16 +1,17 @@
-package Model;
+package model;
 
-import java.util.LinkedHashSet;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
+import java.util.*;
 
 
-public class Dictionary3 {
+
+public class Dictionary4 {
+
     public static void main(String[] args) {
 
         UserInput userInput = new UserInput();
         String word = userInput.input();
+
+
 
         final Set<String> a1 = new LinkedHashSet<>(); //animal
         a1.add("животное");
@@ -59,19 +60,6 @@ public class Dictionary3 {
         f2.add("цветок");
         f2.add("цветение");
 
-        Set<Set<String>> rus = new LinkedHashSet<>();
-        rus.add(a1);
-        rus.add(a2);
-        rus.add(b1);
-        rus.add(b2);
-        rus.add(c1);
-        rus.add(c2);
-        rus.add(d1);
-        rus.add(d2);
-        rus.add(e1);
-        rus.add(e2);
-        rus.add(f1);
-        rus.add(f2);
 
         Map<String, Set<String>> searchRu = new TreeMap<>();
         searchRu.put("action", a2);
@@ -87,26 +75,16 @@ public class Dictionary3 {
         searchRu.put("flowers", f2);
         searchRu.put("fuck", f1);
 
-        // search english word in dictionary
-        if (searchRu.get(word) != null) {
-            System.out.println(searchRu.get(word));
-        } else {
-
-            // search russian word in dictionary
-            for (Set set : rus) {
-                if (set.contains(word)) {
-
-                    // search translations for russian word
-                    for (Map.Entry<String, Set<String>> RuToEn : searchRu.entrySet()) {
-                        if (RuToEn.getValue().contains(word)) {
-                            System.out.println(RuToEn.getKey());
+for (Map.Entry<String, Set<String>> entry : searchRu.entrySet() ){
+    if(entry.getValue().contains(word)){
+        System.out.println(entry.getKey());
+    }
+//
+}
 
 
-                        }
-                    }
-                }
-            }
-        }
+
     }
 }
+
 
