@@ -1,6 +1,11 @@
 package allDictionary;
 
-import java.util.*;
+
+
+import java.util.LinkedHashSet;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
 import java.util.stream.Collectors;
 
 public class Dictionary {
