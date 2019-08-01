@@ -8,7 +8,4 @@ import java.util.Set;
 public interface RussianDao {
     Set<RussianWord> findByName(String word);
 
-    Connection getConnection();
-
-    void closeConnection();
 }

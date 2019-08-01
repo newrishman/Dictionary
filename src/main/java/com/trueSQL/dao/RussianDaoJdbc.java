@@ -3,6 +3,7 @@ package com.trueSQL.dao;
 import com.trueSQL.model.EnglishWord;
 import com.trueSQL.model.RussianWord;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,8 +11,12 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class RussianDaoJdbc extends EnglishDaoJdbc implements RussianDao {
+    Connection connection;
+
     @Override
     public Set<RussianWord> findByName(String word) {
+        Service service = new Service();
+        connection = service.getConnection();
         Set<RussianWord> rusWord = new LinkedHashSet<>();
         final String command = "SELECT Eng.English " +
                 "FROM `Eng` JOIN `Eng-Ru` ON `Eng`.`idEng` = `Eng-Ru`.`idEng` " +
@@ -19,12 +24,8 @@ public class RussianDaoJdbc extends EnglishDaoJdbc implements RussianDao {
                 "WHERE Rus.Russians = ?;";
 
         PreparedStatement preparedStatement;
-
         try {
-
-            preparedStatement = connection.prepareStatement(command);
-            preparedStatement.setString(1, word);
-            ResultSet resultSet = preparedStatement.executeQuery();
+            ResultSet resultSet = service.resultSet(command, word);
 
             RussianWord russianWord;
             while (resultSet.next()) {
@@ -32,7 +33,6 @@ public class RussianDaoJdbc extends EnglishDaoJdbc implements RussianDao {
                 russianWord.setName(resultSet.getString(1));
                 rusWord.add(russianWord);
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
         }

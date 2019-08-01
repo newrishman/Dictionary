@@ -8,7 +8,4 @@ import java.util.Set;
 public interface EnglishDao {
     Set<?> findByName(String word);
 
-    Connection getConnection();
-
-    void closeConnection();
 }
