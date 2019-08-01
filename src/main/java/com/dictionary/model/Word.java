@@ -1,4 +1,4 @@
-package com.trueSQL.model;
+package com.dictionary.model;
 
 public class Word {
 

@@ -1,6 +1,6 @@
-package com.newrishman.dao;
+package com.testSQLDao.dao;
 
-import com.newrishman.model.Dictionary;
+import com.testSQLDao.model.Dictionary;
 
 import java.sql.*;
 import java.util.LinkedHashSet;

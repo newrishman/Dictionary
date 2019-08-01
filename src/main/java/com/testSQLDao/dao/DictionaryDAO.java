@@ -1,4 +1,4 @@
-package com.newrishman.dao;
+package com.testSQLDao.dao;
 
 import java.sql.Connection;
 import java.util.Set;

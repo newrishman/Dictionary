@@ -1,4 +1,4 @@
-package com.trueSQL.service;
+package com.dictionary.service;
 
 import java.sql.*;
 

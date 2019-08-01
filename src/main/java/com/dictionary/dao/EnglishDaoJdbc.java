@@ -1,7 +1,7 @@
-package com.trueSQL.dao;
+package com.dictionary.dao;
 
-import com.trueSQL.service.Service;
-import com.trueSQL.model.EnglishWord;
+import com.dictionary.service.Service;
+import com.dictionary.model.EnglishWord;
 
 import java.sql.*;
 import java.util.LinkedHashSet;

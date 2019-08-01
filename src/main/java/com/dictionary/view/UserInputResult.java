@@ -1,4 +1,4 @@
-package com.trueSQL.view;
+package com.dictionary.view;
 
 import java.util.Scanner;
 

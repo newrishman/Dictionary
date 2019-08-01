@@ -1,10 +1,10 @@
 
-package com.trueSQL.controller;
+package com.dictionary.controller;
 
-import com.trueSQL.dao.*;
-import com.trueSQL.view.OutPuts;
-import com.trueSQL.model.RussianWord;
-import com.trueSQL.view.UserInputResult;
+import com.dictionary.dao.*;
+import com.dictionary.view.OutPuts;
+import com.dictionary.model.RussianWord;
+import com.dictionary.view.UserInputResult;
 
 import java.util.Set;
 

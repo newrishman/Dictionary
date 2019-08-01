@@ -1,8 +1,5 @@
-package com.trueSQL.dao;
+package com.dictionary.dao;
 
-import com.trueSQL.model.EnglishWord;
-
-import java.sql.Connection;
 import java.util.Set;
 
 public interface EnglishDao {

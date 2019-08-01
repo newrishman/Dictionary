@@ -1,8 +1,7 @@
-package com.trueSQL.dao;
+package com.dictionary.dao;
 
-import com.trueSQL.model.RussianWord;
+import com.dictionary.model.RussianWord;
 
-import java.sql.Connection;
 import java.util.Set;
 
 public interface RussianDao {

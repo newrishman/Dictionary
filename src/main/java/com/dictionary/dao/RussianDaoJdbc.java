@@ -1,7 +1,7 @@
-package com.trueSQL.dao;
+package com.dictionary.dao;
 
-import com.trueSQL.service.Service;
-import com.trueSQL.model.RussianWord;
+import com.dictionary.service.Service;
+import com.dictionary.model.RussianWord;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

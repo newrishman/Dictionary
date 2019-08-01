@@ -1,7 +1,7 @@
-package com.newrishman;
+package com.testSQLDao;
 
-import com.newrishman.dao.DictionaryDAO;
-import com.newrishman.dao.JDBCDictionaryDAO;
+import com.testSQLDao.dao.DictionaryDAO;
+import com.testSQLDao.dao.JDBCDictionaryDAO;
 
 public class Main {
     public static void main(String[] args) {

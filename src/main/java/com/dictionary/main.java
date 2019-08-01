@@ -1,7 +1,7 @@
-package com.trueSQL;
+package com.dictionary;
 
-import com.trueSQL.controller.Controller;
-import com.trueSQL.service.Service;
+import com.dictionary.controller.Controller;
+import com.dictionary.service.Service;
 
 public class main {
     public static void main(String[] args) {

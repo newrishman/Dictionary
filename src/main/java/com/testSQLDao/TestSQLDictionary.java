@@ -1,4 +1,4 @@
-package com.newrishman;
+package com.testSQLDao;
 
 import java.sql.*;
 

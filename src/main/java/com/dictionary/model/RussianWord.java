@@ -1,6 +1,6 @@
-package com.trueSQL.model;
+package com.dictionary.model;
 
-public class EnglishWord extends Word {
+public class RussianWord extends Word {
     @Override
     public String toString() {
         return name;

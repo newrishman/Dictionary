@@ -1,4 +1,4 @@
-package com.newrishman.model;
+package com.testSQLDao.model;
 
 import java.util.Scanner;
 
