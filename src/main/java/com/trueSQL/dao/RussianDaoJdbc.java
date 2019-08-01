@@ -1,6 +1,6 @@
 package com.trueSQL.dao;
 
-import com.trueSQL.model.EnglishWord;
+import com.trueSQL.service.Service;
 import com.trueSQL.model.RussianWord;
 
 import java.sql.Connection;

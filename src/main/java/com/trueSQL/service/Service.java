@@ -1,4 +1,4 @@
-package com.trueSQL.dao;
+package com.trueSQL.service;
 
 import java.sql.*;
 
@@ -21,6 +21,8 @@ public class Service {
         return connection;
     }
 
+
+
     public void closeConnection() {
         try {
             if (connection != null) {
@@ -29,6 +31,8 @@ public class Service {
         } catch (Exception e) {
         }
     }
+
+
 
     public ResultSet resultSet (String command, String word) {
 

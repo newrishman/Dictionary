@@ -1,7 +1,7 @@
 package com.trueSQL;
 
 import com.trueSQL.controller.Controller;
-import com.trueSQL.dao.Service;
+import com.trueSQL.service.Service;
 
 public class main {
     public static void main(String[] args) {

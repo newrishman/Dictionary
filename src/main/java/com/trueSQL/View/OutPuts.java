@@ -1,4 +1,4 @@
-package com.trueSQL.model;
+package com.trueSQL.View;
 
 import java.util.Set;
 
