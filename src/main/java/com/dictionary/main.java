@@ -10,5 +10,6 @@ public class main {
         Service service = new Service();
         controller.input();
         service.closeConnection();
+
     }
 }

@@ -7,13 +7,14 @@ public class OutPuts {
     public void message(int print) {
 
         final String begin = "Добро пожаловать в словарь! Для поиска слова," +
-                "воспользуйтесь командой find + искомое слово. \n" +
+                "воспользуйтесь командой find + искомое слово. " +
                 "Для занесения новых слов, воспользуйтесь командой add" +
                 " + язык слова (eng/rus) + переводы слова. \n" +
-                "Пример поиска: find animal \n" +
-                "Пример занесения: add eng animal животное зверь \n" +
+                "Пример поиска: find animal    " +
+                "Пример занесения: add eng animal животное зверь. \n" +
                 "Введите команду и слово:";
-        final String unknown = "Данное слово отсутствует в словаре.";
+        final String unknown = "Данное слово отсутствует в словаре. Вы можете записать это слово в словарь.";
+        final String unkCommand = "Введена некорректная команда!";
         final String record = "Перевод данного слова успешно записан.";
 
 
@@ -22,8 +23,10 @@ public class OutPuts {
             a = begin;
         } else if (print == 2) {
             a = unknown;
-        } else {
+        } else if (print == 3){
             a = record;
+        } else {
+            a =unkCommand;
         }
         System.out.println(a);
     }
