@@ -11,6 +11,4 @@ public class main {
         controller.input();
         service.closeConnection();
     }
-
-
 }

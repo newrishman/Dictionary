@@ -11,13 +11,13 @@ public class RussianDaoJdbc extends EnglishDaoJdbc implements RussianDao {
     Connection connection;
 
     @Override
-    public Set<RussianWord> findByName(String command, String word) {
+    public Set<RussianWord> findByName(int com, String word) {
         Service service = new Service();
         connection = service.getConnection();
         Set<RussianWord> rusWord = new LinkedHashSet<>();
 
         try {
-            ResultSet resultSet = service.resultSet(command, word);
+            ResultSet resultSet = service.resultSet(com, word);
 
             RussianWord russianWord;
             while (resultSet.next()) {

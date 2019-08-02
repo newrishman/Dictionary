@@ -4,22 +4,23 @@ import java.util.Set;
 
 public class OutPuts {
 
-    private final String begin = "Добро пожаловать в словарь! Для поиска слова," +
-            "воспользуйтесь командой find + искомое слово. \n" +
-            "Для занесения новых слов, воспользуйтесь командой add" +
-            " + язык слова (eng/rus) + переводы слова. \n" +
-            "Пример поиска: find animal \n" +
-            "Пример занесения: add eng animal животное зверь \n" +
-            "Введите команду и слово:";
-    private final String unknown = "Данное слово отсутствует в словаре.";
-    private final String record = "Перевод данного слова успешно записан.";
-    private final String search = "Такого слова не найдено. Возможно Вы имели ввиду: \n";
+    public void message(int print) {
 
-    public void message(int x) {
+        final String begin = "Добро пожаловать в словарь! Для поиска слова," +
+                "воспользуйтесь командой find + искомое слово. \n" +
+                "Для занесения новых слов, воспользуйтесь командой add" +
+                " + язык слова (eng/rus) + переводы слова. \n" +
+                "Пример поиска: find animal \n" +
+                "Пример занесения: add eng animal животное зверь \n" +
+                "Введите команду и слово:";
+        final String unknown = "Данное слово отсутствует в словаре.";
+        final String record = "Перевод данного слова успешно записан.";
+
+
         String a;
-        if (x == 1) {
+        if (print == 1) {
             a = begin;
-        } else if (x == 2) {
+        } else if (print == 2) {
             a = unknown;
         } else {
             a = record;
@@ -27,12 +28,13 @@ public class OutPuts {
         System.out.println(a);
     }
 
-    public void translation(String a, String b, Set<?> set) {
-        String trans = a + " - " + b + " слово. Перевод: " + set;
+    public void translation(String word, String lang, Set<?> set) {
+        String trans = word + " - " + lang + " слово. Перевод: " + set;
         System.out.println(trans);
     }
 
     public void variants(Set<?> set) {
-        System.out.println(search + " " +set);
+        final String search = "Такого слова не найдено. Возможно Вы имели ввиду: \n";
+        System.out.println(search + " " + set);
     }
 }

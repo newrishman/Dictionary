@@ -11,13 +11,13 @@ public class EnglishDaoJdbc implements EnglishDao {
     Connection connection;
 
     @Override
-    public Set<?> findByName(String command, String word) {
+    public Set<?> findByName(int com, String word) {
         Service service = new Service();
         connection = service.getConnection();
         Set<EnglishWord> engWord = new LinkedHashSet<>();
 
         try {
-            ResultSet resultSet = service.resultSet(command, word);
+            ResultSet resultSet = service.resultSet(com, word);
 
             EnglishWord englishWord;
             while (resultSet.next()) {

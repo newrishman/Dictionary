@@ -1,13 +1,15 @@
 package com.dictionary.service;
 
+import com.dictionary.controller.Controller;
+
 import java.sql.*;
 
 public class Service {
-    Connection connection;
     private static final String URL = "jdbc:mysql://localhost:3306/Dictionary?useSSL=false&serverTimezone=UTC";
     private static final String username = "root";
     private static final String password = "qweqweqwe";
 
+    private Connection connection;
 
     public Connection getConnection() {
         try {
@@ -22,19 +24,45 @@ public class Service {
     }
 
 
-
     public void closeConnection() {
-        try {
-            if (connection != null) {
+
+        if (connection != null) {
+            try {
                 connection.close();
+            } catch (SQLException e) {
             }
-        } catch (Exception e) {
         }
     }
 
 
+    public ResultSet resultSet(int com, String word) {
 
-    public ResultSet resultSet (String command, String word) {
+        String command;
+        final String enCommand = "SELECT Rus.Russians " +
+                "FROM `Eng` JOIN `Eng-Ru` ON `Eng`.`idEng` = `Eng-Ru`.`idEng` " +
+                "JOIN `Rus` ON `Eng-Ru`.`idRus` = `Rus`.`idRus` " +
+                "WHERE Eng.English = ?;";
+
+        final String ruCommand = "SELECT Eng.English " +
+                "FROM `Eng` JOIN `Eng-Ru` ON `Eng`.`idEng` = `Eng-Ru`.`idEng` " +
+                "JOIN `Rus` ON `Eng-Ru`.`idRus` = `Rus`.`idRus` " +
+                "WHERE Rus.Russians = ?;";
+
+        final String enCommand2 = "select English from Eng where English like '" + word + "%' order by\n" +
+                " char_length(English), English asc;";
+
+        final String ruCommand2 = "select Russians from Rus where Russians like '" + word + "%' order by \n" +
+                " char_length(Russians), Russians asc;";
+
+        if (com == 1) {
+            command = enCommand;
+        } else if (com == 2) {
+            command = ruCommand;
+        } else if (com == 3) {
+            command = enCommand2;
+        } else {
+            command = ruCommand2;
+        }
 
         PreparedStatement preparedStatement;
         ResultSet resultSet = null;
@@ -42,9 +70,11 @@ public class Service {
             preparedStatement = connection.prepareStatement(command);
             preparedStatement.setString(1, word);
             resultSet = preparedStatement.executeQuery();
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
         return resultSet;
     }
 }
