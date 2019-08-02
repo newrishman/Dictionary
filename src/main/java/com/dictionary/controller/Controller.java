@@ -34,25 +34,24 @@ public class Controller {
 
 
         if (command.equalsIgnoreCase("find")) {
-            if (enFind(1).isEmpty()) {
-                if (enFind(3).isEmpty()) {
-                    if (ruFind(2).isEmpty()) {
-                        if (ruFind(4).isEmpty()) {
-                            outPuts.message(2);
-                        } else {
-                            outPuts.variants(ruFind(4));
-                        }
-                    } else {
-                        outPuts.translation(word, "русское", ruFind(2));
-                    }
-                } else {
-                    outPuts.variants(enFind(3));
-                }
-            } else {
+
+            if (!enFind(1).isEmpty()) {
                 outPuts.translation(word, "английское", enFind(1));
+            } else {
+                if (!enFind(3).isEmpty()) {
+                    outPuts.variants(enFind(3));
+                } else {
+                    if (!ruFind(2).isEmpty()) {
+                        outPuts.translation(word, "русское", ruFind(2));
+                    } else {
+                        if (!ruFind(4).isEmpty()) {
+                            outPuts.variants(ruFind(4));
+                        } else {
+                            outPuts.message(2);
+                        }
+                    }
+                }
             }
-
-
         } else if (command.equalsIgnoreCase("add")) {
 
         } else {
