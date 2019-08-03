@@ -10,8 +10,9 @@ import java.util.Set;
 
 public class Controller {
 
-    private String word;
     private String[] inputs;
+    private String command;
+    private String word;
 
     private RussianDao rusDao = new RussianDaoJdbc();
     private EnglishDao engDao = new EnglishDaoJdbc();
@@ -23,8 +24,6 @@ public class Controller {
 
     public void translation() {
 
-        String command;
-
         outPuts.message(1);
 
         inputs = userInputResult.inputs();
@@ -35,7 +34,6 @@ public class Controller {
         // команда 2 - поиск введенного русского слова в словаре
         // команда 3 - поиск английских слов, похожих на введенное
         // команда 4 - поиск русских слов, похожих на введенное
-
 
         if (command.equalsIgnoreCase("find")) {
 
