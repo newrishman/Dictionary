@@ -2,7 +2,7 @@ package com.dictionary.service;
 
 public class AllSQLCommand {
 
-   private final String SearchEn = "SELECT Rus.Russians " +
+    private final String SearchEn = "SELECT Rus.Russians " +
             "FROM `Eng` JOIN `Eng-Ru` ON `Eng`.`idEng` = `Eng-Ru`.`idEng` " +
             "JOIN `Rus` ON `Eng-Ru`.`idRus` = `Rus`.`idRus` " +
             "WHERE Eng.English =  ?;";
@@ -20,11 +20,7 @@ public class AllSQLCommand {
 
     private final String insertEn = "insert into `Eng` (`English`) values (?);";
 
-    private final String getEnId = "select idEng from `Eng` where `English`= ?;";
-
     private final String insertRu = "insert into `Rus` (`Russians`) values ( ? )";
-
-    private final String getRuId = "select idRus from `Rus` where `Russians` = ?;";
 
     private final String insertID = "insert into `Eng-Ru` (`idEng`, `idRus`) values ( ? , ?);";
 
@@ -43,15 +39,10 @@ public class AllSQLCommand {
         } else if (number == 5) {
             command = insertEn;
         } else if (number == 6) {
-            command = getEnId;
-        } else if (number == 7) {
             command = insertRu;
-        } else if (number == 8) {
-            command = getRuId;
         } else {
             command = insertID;
         }
-        System.out.println(command);
         return command;
     }
 }

@@ -12,6 +12,6 @@ public class RusRecordDaoJdbc implements RusRecordDao {
     public void record(String[] inputs) {
         connection = service.getConnection();
         Service service = new Service();
-        service.recordTranslation(inputs, 2);
+        service.recordTranslation(inputs);
     }
 }

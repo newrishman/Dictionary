@@ -1,0 +1,1 @@
+insert into `Eng-Ru` values (idEng, `idRus`) values (100, 100);
