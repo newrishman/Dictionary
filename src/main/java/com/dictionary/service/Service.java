@@ -80,5 +80,7 @@ public class Service {
 
     public void recordTranslation (String[] inputs, int com){
 
+
+
     }
 }

@@ -8,7 +8,7 @@ public class main {
 
         Controller controller = new Controller();
         Service service = new Service();
-        controller.input();
+        controller.translation();
         service.closeConnection();
 
     }

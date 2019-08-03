@@ -21,7 +21,7 @@ public class Controller {
     private UserInputResult userInputResult = new UserInputResult();
 
 
-    public void input() {
+    public void translation() {
 
         String command;
 
