@@ -21,7 +21,7 @@ public class Controller {
     private UserInputResult userInputResult = new UserInputResult();
 
 
-    public void translation() {
+    public void dictionary() {
 
         outPuts.message(1);
 
