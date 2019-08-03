@@ -8,14 +8,15 @@ public class OutPuts {
 
         final String begin = "Добро пожаловать в словарь! Для поиска слова," +
                 "воспользуйтесь командой find + искомое слово. " +
-                "Для занесения новых слов, воспользуйтесь командой add" +
-                " + язык слова (eng/rus) + переводы слова. \n" +
+                "Для занесения новых слов, воспользуйтесь командой \n add" +
+                " + новое слово + язык слова (eng/rus) + переводы слова. \n" +
                 "Пример поиска: find animal    " +
                 "Пример занесения: add eng animal животное зверь. \n" +
                 "Введите команду и слово:";
         final String unknown = "Данное слово отсутствует в словаре. Вы можете записать это слово в словарь.";
         final String unkCommand = "Введена некорректная команда!";
         final String record = "Перевод данного слова успешно записан.";
+        final String langError = "Неправильно введен язык записываемого слова";
 
 
         String a;
@@ -23,10 +24,12 @@ public class OutPuts {
             a = begin;
         } else if (print == 2) {
             a = unknown;
-        } else if (print == 3){
+        } else if (print == 3) {
             a = record;
+        } else if (print == 4) {
+            a = unkCommand;
         } else {
-            a =unkCommand;
+            a = langError;
         }
         System.out.println(a);
     }

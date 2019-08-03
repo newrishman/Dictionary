@@ -7,6 +7,7 @@ public class Service {
     private static final String URL = "jdbc:mysql://localhost:3306/Dictionary?useSSL=false&serverTimezone=UTC";
     private static final String username = "root";
     private static final String password = "qweqweqwe";
+    private static PreparedStatement preparedStatement;
 
     private Connection connection;
 
@@ -22,7 +23,6 @@ public class Service {
         return connection;
     }
 
-
     public void closeConnection() {
 
         if (connection != null) {
@@ -32,7 +32,6 @@ public class Service {
             }
         }
     }
-
 
     public ResultSet resultSet(int com, String word) {
 
@@ -59,13 +58,13 @@ public class Service {
             command = ruCommand;
         } else if (com == 3) {
             command = enCommand2;
-            word = word+"%";
+            word = word + "%";
         } else {
             command = ruCommand2;
-            word = word+"%";
+            word = word + "%";
         }
 
-        PreparedStatement preparedStatement;
+
         ResultSet resultSet = null;
         try {
             preparedStatement = connection.prepareStatement(command);
@@ -77,5 +76,9 @@ public class Service {
         }
 
         return resultSet;
+    }
+
+    public void recordTranslation (String[] inputs, int com){
+
     }
 }

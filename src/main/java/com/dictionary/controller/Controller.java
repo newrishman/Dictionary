@@ -1,6 +1,7 @@
 package com.dictionary.controller;
 
 import com.dictionary.dao.*;
+import com.dictionary.service.Service;
 import com.dictionary.view.OutPuts;
 import com.dictionary.model.RussianWord;
 import com.dictionary.view.UserInputResult;
@@ -10,15 +11,18 @@ import java.util.Set;
 public class Controller {
 
     private String word;
+    private String[] inputs;
 
     private RussianDao rusDao = new RussianDaoJdbc();
     private EnglishDao engDao = new EnglishDaoJdbc();
+    private RusRecordDao rusRecordDao = new RusRecordDaoJdbc();
+    private EngRecordDao engRecordDao = new EngRecordDaoJdbc();
     private OutPuts outPuts = new OutPuts();
     private UserInputResult userInputResult = new UserInputResult();
 
 
     public void input() {
-        String[] inputs;
+
         String command;
 
         outPuts.message(1);
@@ -54,6 +58,14 @@ public class Controller {
             }
         } else if (command.equalsIgnoreCase("add")) {
 
+            if (word.equalsIgnoreCase("eng")) {
+                recordEn();
+            } else if (word.equalsIgnoreCase("rus")) {
+                recordRu();
+            } else {
+                outPuts.message(6);
+            }
+            outPuts.message(3);
         } else {
             outPuts.message(4);
         }
@@ -67,6 +79,14 @@ public class Controller {
     public Set<?> enFind(int com) {
 
         return engDao.findByName(com, word);
+    }
+
+    public void recordRu() {
+        rusRecordDao.record(inputs);
+    }
+
+    public void recordEn() {
+        engRecordDao.record(inputs);
     }
 }
 
