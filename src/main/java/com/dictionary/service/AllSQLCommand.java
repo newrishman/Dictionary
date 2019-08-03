@@ -2,47 +2,56 @@ package com.dictionary.service;
 
 public class AllSQLCommand {
 
-    final String enCommand = "SELECT Rus.Russians " +
+   private final String SearchEn = "SELECT Rus.Russians " +
             "FROM `Eng` JOIN `Eng-Ru` ON `Eng`.`idEng` = `Eng-Ru`.`idEng` " +
             "JOIN `Rus` ON `Eng-Ru`.`idRus` = `Rus`.`idRus` " +
             "WHERE Eng.English =  ?;";
 
-    final String ruCommand = "SELECT Eng.English " +
+    private final String SearchRu = "SELECT Eng.English " +
             "FROM `Eng` JOIN `Eng-Ru` ON `Eng`.`idEng` = `Eng-Ru`.`idEng` " +
             "JOIN `Rus` ON `Eng-Ru`.`idRus` = `Rus`.`idRus` " +
             "WHERE Rus.Russians =  ?;";
 
-    final String enCommand2 = "select English from Eng where English like ? order by\n" +
+    private final String SearchEnLike = "select English from Eng where English like ? order by\n" +
             " char_length(English), English asc;";
 
-    final String ruCommand2 = "select Russians from Rus where Russians like ? order by \n" +
+    private final String SearchRuLike = "select Russians from Rus where Russians like ? order by \n" +
             " char_length(Russians), Russians asc;";
 
+    private final String insertEn = "insert into `Eng` (`English`) values (?);";
+
+    private final String getEnId = "select idEng from `Eng` where `English`= ?;";
+
+    private final String insertRu = "insert into `Rus` (`Russians`) values ( ? )";
+
+    private final String getRuId = "select idRus from `Rus` where `Russians` = ?;";
+
+    private final String insertID = "insert into `Eng-Ru` (`idEng`, `idRus`) values ( ? , ?);";
 
     private String command;
 
+
     public String getCommand(int number) {
         if (number == 1) {
-            command =enCommand;
+            command = SearchEn;
         } else if (number == 2) {
-            command =ruCommand;
+            command = SearchRu;
         } else if (number == 3) {
-            command =enCommand2;
-        } else /*if (number == 4)*/ {
-            command =ruCommand2;
-        /*} else if (number == 5) {
-            command =;
+            command = SearchEnLike;
+        } else if (number == 4) {
+            command = SearchRuLike;
+        } else if (number == 5) {
+            command = insertEn;
         } else if (number == 6) {
-            command =;
+            command = getEnId;
         } else if (number == 7) {
-            command =;
+            command = insertRu;
         } else if (number == 8) {
-            command =;
-        } else if (number == 9) {
-            command =;
-        } else if (number == 10) {
-            command =;*/
+            command = getRuId;
+        } else {
+            command = insertID;
         }
+        System.out.println(command);
         return command;
     }
 }
