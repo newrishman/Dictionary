@@ -1,7 +1,6 @@
 package com.dictionary.controller;
 
 import com.dictionary.dao.*;
-import com.dictionary.service.Service;
 import com.dictionary.view.OutPuts;
 import com.dictionary.model.RussianWord;
 import com.dictionary.view.UserInputResult;
