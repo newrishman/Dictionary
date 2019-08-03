@@ -39,7 +39,7 @@ public class OutPuts {
         System.out.println(trans);
     }
 
-    public void variants(Set<?> set) {
+    public void translation(Set<?> set) {
         final String search = "Такого слова не найдено. Возможно Вы имели ввиду: \n";
         System.out.println(search + " " + set);
     }

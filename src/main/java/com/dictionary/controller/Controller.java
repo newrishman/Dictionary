@@ -9,15 +9,16 @@ import java.util.Set;
 
 public class Controller {
 
-    private String[] inputs;
-    private String command;
+    private Set<?> set;
     private String word;
+    private String command;
+    private String[] inputs;
 
+    private OutPuts outPuts = new OutPuts();
     private RussianDao rusDao = new RussianDaoJdbc();
     private EnglishDao engDao = new EnglishDaoJdbc();
     private RusRecordDao rusRecordDao = new RusRecordDaoJdbc();
     private EngRecordDao engRecordDao = new EngRecordDaoJdbc();
-    private OutPuts outPuts = new OutPuts();
     private UserInputResult userInputResult = new UserInputResult();
 
 
@@ -29,24 +30,26 @@ public class Controller {
         command = inputs[0];
         word = inputs[1];
 
-        // команда 1 - поиск введенного английского слова в словаре
-        // команда 2 - поиск введенного русского слова в словаре
-        // команда 3 - поиск английских слов, похожих на введенное
-        // команда 4 - поиск русских слов, похожих на введенное
-
         if (command.equalsIgnoreCase("find")) {
-
-            if (!enFind(1).isEmpty()) {
-                outPuts.translation(word, "английское", enFind(1));
+            // поиск введенного английского слова в словаре
+            set=enFind(1);
+            if (!set.isEmpty()) {
+                outPuts.translation(word, "английское", set);
             } else {
-                if (!enFind(3).isEmpty()) {
-                    outPuts.variants(enFind(3));
+                // поиск английских слов, похожих на введенное
+                set=enFind(3);
+                if (!set.isEmpty()) {
+                    outPuts.translation(set);
                 } else {
-                    if (!ruFind(2).isEmpty()) {
-                        outPuts.translation(word, "русское", ruFind(2));
+                    // поиск введенного русского слова в словаре
+                    set=ruFind(2);
+                    if (!set.isEmpty()) {
+                        outPuts.translation(word, "русское", set);
                     } else {
-                        if (!ruFind(4).isEmpty()) {
-                            outPuts.variants(ruFind(4));
+                        // поиск русских слов, похожих на введенное
+                        set=ruFind(4);
+                        if (!set.isEmpty()) {
+                            outPuts.translation(set);
                         } else {
                             outPuts.message(2);
                         }
