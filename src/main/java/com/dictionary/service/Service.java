@@ -5,7 +5,7 @@ import java.sql.*;
 
 public class Service {
     private String command;
-    private Long id;
+    private Long id = null;
 
     private AllSQLCommand allSQLCommand;
     private Connection connection;
@@ -59,7 +59,7 @@ public class Service {
         return resultSet;
     }
 
-    public long searchId(int com, String word) {
+    public Long searchId(int com, String word) {
 
         allSQLCommand = new AllSQLCommand();
         command = allSQLCommand.getCommand(com);
@@ -80,7 +80,7 @@ public class Service {
         return id;
     }
 
-    public long recordWord(int com, String word) {
+    public Long recordWord(int com, String word) {
         allSQLCommand = new AllSQLCommand();
         command = allSQLCommand.getCommand(com);
 

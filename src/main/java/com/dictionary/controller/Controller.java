@@ -39,8 +39,9 @@ public class Controller {
 
         } else if (command.equalsIgnoreCase("add")) {
 
-            if (recordWord(inputs[2]))
+            if (recordWord(word, inputs)) {
                 outPuts.message(3);
+            }
 
         } else {
             outPuts.message(4);
@@ -84,12 +85,12 @@ public class Controller {
         return false;
     }
 
-    private boolean recordWord(String lang) {
+    private boolean recordWord(String lang, String[] input) {
         if (lang.equalsIgnoreCase("eng")) {
-            engRecordDao.record(inputs);
+            engRecordDao.record(input);
             return true;
         } else if (lang.equalsIgnoreCase("rus")) {
-            rusRecordDao.record(inputs);
+            rusRecordDao.record(input);
             return true;
         } else {
             outPuts.message(5);
