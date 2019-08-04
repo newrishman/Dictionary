@@ -65,27 +65,33 @@ public class Service {
         getConnection();
         allSQLCommand = new AllSQLCommand();
 
-        words = inputs[2];
-        command = allSQLCommand.getCommand(5);
         try {
+            words = inputs[2];
+            command = allSQLCommand.getCommand(5);
+
             preparedStatement = connection.prepareStatement(command, PreparedStatement.RETURN_GENERATED_KEYS);
             preparedStatement.setString(1, words);
             preparedStatement.executeUpdate();
+
             ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
             generatedKeys.next();
             idEng = generatedKeys.getLong(1);
 
             for (int x = 3; x < inputs.length; x++) {
+
                 words = inputs[x];
                 command = allSQLCommand.getCommand(6);
+
                 preparedStatement = connection.prepareStatement(command, PreparedStatement.RETURN_GENERATED_KEYS);
                 preparedStatement.setString(1, words);
                 preparedStatement.executeUpdate();
+
                 generatedKeys = preparedStatement.getGeneratedKeys();
                 generatedKeys.next();
                 idRus = generatedKeys.getLong(1);
 
                 command = allSQLCommand.getCommand(7);
+
                 preparedStatement = connection.prepareStatement(command);
                 preparedStatement.setLong(1, idEng);
                 preparedStatement.setLong(2, idRus);
