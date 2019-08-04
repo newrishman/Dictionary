@@ -20,7 +20,7 @@ public class EngRecordDaoJdbc implements EngRecordDao {
         // команда 5 - поиск английского id
         engId = service.searchId(5, word);
         if (engId == null) {
-            // команда 6 - запись английского слова
+            // команда 7 - запись английского слова
             engId = service.recordWord(7, word);
         }
 
@@ -30,10 +30,10 @@ public class EngRecordDaoJdbc implements EngRecordDao {
             // команда 6 - поиск русского id
             rusId = service.searchId(6, word);
             if (rusId == null) {
-                // команда 6 - запись русского слова
+                // команда 8 - запись русского слова
                 rusId = service.recordWord(8, word);
             }
-
+            // команда 9 - запись русского и английского ID
             service.recordId(9, engId, rusId);
 
         }
