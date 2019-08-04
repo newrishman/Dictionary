@@ -2,12 +2,12 @@ package com.dictionary.service;
 
 public class AllSQLCommand {
 
-    private final String SearchEn = "SELECT Rus.Russians, Rus.idRus " +
+    private final String SearchEn = "SELECT Rus.Russians " +
             "FROM `Eng` JOIN `Eng-Ru` ON `Eng`.`idEng` = `Eng-Ru`.`idEng` " +
             "JOIN `Rus` ON `Eng-Ru`.`idRus` = `Rus`.`idRus` " +
             "WHERE Eng.English =  ?;";
 
-    private final String SearchRu = "SELECT Eng.English, Eng.idEng " +
+    private final String SearchRu = "SELECT Eng.English " +
             "FROM `Eng` JOIN `Eng-Ru` ON `Eng`.`idEng` = `Eng-Ru`.`idEng` " +
             "JOIN `Rus` ON `Eng-Ru`.`idRus` = `Rus`.`idRus` " +
             "WHERE Rus.Russians =  ?;";

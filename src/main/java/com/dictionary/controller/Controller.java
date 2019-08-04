@@ -48,7 +48,6 @@ public class Controller {
     }
 
 
-
     private boolean ruFind(int com) {
         // поиск слова - команда #3
         set = rusDao.findByName(com, word);
@@ -56,13 +55,14 @@ public class Controller {
             outPuts.translation(word, "русское", set);
             return true;
             // поиск похожего слова  - команда #4
-        } else com = com + 1;
-        set = rusDao.findByName(com, word);
-        if (!set.isEmpty()) {
-            outPuts.translation(set);
-            return true;
+        } else {
+            com = com + 1;
+            set = rusDao.findByName(com, word);
+            if (!set.isEmpty()) {
+                outPuts.translation(set);
+                return true;
+            }
         }
-
         return false;
     }
 
@@ -73,11 +73,13 @@ public class Controller {
             outPuts.translation(word, "английское", set);
             return true;
             // поиск слова - команда #2
-        } else com = com + 1;
-        set = engDao.findByName(com, word);
-        if (!set.isEmpty()) {
-            outPuts.translation(set);
-            return true;
+        } else {
+            com = com + 1;
+            set = engDao.findByName(com, word);
+            if (!set.isEmpty()) {
+                outPuts.translation(set);
+                return true;
+            }
         }
         return false;
     }

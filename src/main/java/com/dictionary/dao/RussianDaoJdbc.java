@@ -24,7 +24,6 @@ public class RussianDaoJdbc extends EnglishDaoJdbc implements RussianDao {
             while (resultSet.next()) {
                 russianWord = new RussianWord();
                 russianWord.setName(resultSet.getString(1));
-                russianWord.setId(resultSet.getLong(2));
                 rusWord.add(russianWord);
             }
         } catch (SQLException e) {

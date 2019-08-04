@@ -43,7 +43,7 @@ public class Service {
         allSQLCommand = new AllSQLCommand();
         command = allSQLCommand.getCommand(com);
 
-        if (com == 3 || com == 4) {
+        if (com == 2 || com == 4) {
             word = word + "%";
         }
 

@@ -24,7 +24,6 @@ public class EnglishDaoJdbc implements EnglishDao {
             while (resultSet.next()) {
                 englishWord = new EnglishWord();
                 englishWord.setName(resultSet.getString(1));
-                englishWord.setId(resultSet.getLong(2));
                 engWord.add(englishWord);
             }
         } catch (SQLException e) {
