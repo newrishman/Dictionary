@@ -9,10 +9,11 @@ import java.util.Set;
 
 public class EnglishDaoJdbc implements EnglishDao {
     private Connection connection;
+    private Service service;
 
     @Override
     public Set<?> findByName(int com, String word) {
-        Service service = new Service();
+        service = new Service();
         connection = service.getConnection();
         Set<EnglishWord> engWord = new LinkedHashSet<>();
 

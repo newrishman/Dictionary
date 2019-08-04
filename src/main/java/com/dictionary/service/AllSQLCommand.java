@@ -18,11 +18,15 @@ public class AllSQLCommand {
     private final String SearchRuLike = "select Russians from Rus where Russians like ? order by \n" +
             " char_length(Russians), Russians asc;";
 
-    private final String insertEn = "insert into `Eng` (`English`) values (?);";
+    private final String insertEn = "insert into `Eng` (`English`) values ( ? );";
 
     private final String insertRu = "insert into `Rus` (`Russians`) values ( ? )";
 
-    private final String insertID = "insert into `Eng-Ru` (`idEng`, `idRus`) values ( ? , ?);";
+    private final String insertId = "insert into `Eng-Ru` (`idEng`, `idRus`) values ( ? , ?);";
+
+    private final String searchIdEng = "select idEng from Eng where English = ?;";
+
+    private final String searchIdRus = "select idRus from Rus where Russians = ?;";
 
     private String command;
 
@@ -37,11 +41,15 @@ public class AllSQLCommand {
         } else if (number == 4) {
             command = SearchRuLike;
         } else if (number == 5) {
-            command = insertEn;
+            command = searchIdEng;
         } else if (number == 6) {
+            command = searchIdRus;
+        } else if (number == 7) {
+            command = insertEn;
+        } else if (number == 8) {
             command = insertRu;
         } else {
-            command = insertID;
+            command =insertId;
         }
         return command;
     }

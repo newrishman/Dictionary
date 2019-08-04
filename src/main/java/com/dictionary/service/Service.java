@@ -5,9 +5,7 @@ import java.sql.*;
 
 public class Service {
     private String command;
-    private String words;
-    private long idEng;
-    private long idRus;
+    private Long id;
 
     private AllSQLCommand allSQLCommand;
     private Connection connection;
@@ -61,43 +59,58 @@ public class Service {
         return resultSet;
     }
 
-    public void recordTranslation(String[] inputs) {
-        getConnection();
+    public long searchId(int com, String word) {
+
         allSQLCommand = new AllSQLCommand();
+        command = allSQLCommand.getCommand(com);
+
+        // команда 5 - поиск английского слова
+        // команда 6 - поиск русского слова
+        try {
+            preparedStatement = connection.prepareStatement(command);
+            preparedStatement.setString(1, word);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                id = resultSet.getLong(1);
+            }
+            return id;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return id;
+    }
+
+    public long recordWord(int com, String word) {
+        allSQLCommand = new AllSQLCommand();
+        command = allSQLCommand.getCommand(com);
 
         try {
-            words = inputs[2];
-            command = allSQLCommand.getCommand(5);
-
             preparedStatement = connection.prepareStatement(command, PreparedStatement.RETURN_GENERATED_KEYS);
-            preparedStatement.setString(1, words);
+            preparedStatement.setString(1, word);
             preparedStatement.executeUpdate();
 
             ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
             generatedKeys.next();
-            idEng = generatedKeys.getLong(1);
+            id = generatedKeys.getLong(1);
 
-            for (int x = 3; x < inputs.length; x++) {
-
-                words = inputs[x];
-                command = allSQLCommand.getCommand(6);
-
-                preparedStatement = connection.prepareStatement(command, PreparedStatement.RETURN_GENERATED_KEYS);
-                preparedStatement.setString(1, words);
-                preparedStatement.executeUpdate();
-
-                generatedKeys = preparedStatement.getGeneratedKeys();
-                generatedKeys.next();
-                idRus = generatedKeys.getLong(1);
-
-                command = allSQLCommand.getCommand(7);
-
-                preparedStatement = connection.prepareStatement(command);
-                preparedStatement.setLong(1, idEng);
-                preparedStatement.setLong(2, idRus);
-                preparedStatement.executeUpdate();
-            }
         } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return id;
+    }
+
+    public void recordId(int com, long engId, long rusId) {
+
+        command = allSQLCommand.getCommand(com);
+
+        try {
+            preparedStatement = connection.prepareStatement(command);
+            preparedStatement.setLong(1, engId);
+            preparedStatement.setLong(2, rusId);
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            System.err.println("Запись не прошла");
             e.printStackTrace();
         }
     }
