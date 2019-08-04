@@ -61,7 +61,7 @@ public class Service {
         return resultSet;
     }
 
-    public void recordTranslation(@org.jetbrains.annotations.NotNull String[] inputs) {
+    public void recordTranslation(String[] inputs) {
         getConnection();
         allSQLCommand = new AllSQLCommand();
 

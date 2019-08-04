@@ -8,7 +8,7 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class EnglishDaoJdbc implements EnglishDao {
-    Connection connection;
+    private Connection connection;
 
     @Override
     public Set<?> findByName(int com, String word) {

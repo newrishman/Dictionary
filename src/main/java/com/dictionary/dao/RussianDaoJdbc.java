@@ -8,7 +8,7 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class RussianDaoJdbc extends EnglishDaoJdbc implements RussianDao {
-    Connection connection;
+    private Connection connection;
 
     @Override
     public Set<RussianWord> findByName(int com, String word) {

@@ -5,11 +5,12 @@ import com.dictionary.service.Service;
 import java.sql.Connection;
 
 public class RusRecordDaoJdbc implements RusRecordDao {
-    Connection connection;
-    Service service = new Service();
+    private Connection connection;
+    Service service;
 
     @Override
     public void record(String[] inputs) {
+        service = new Service();
         connection = service.getConnection();
         Service service = new Service();
         service.recordTranslation(inputs);

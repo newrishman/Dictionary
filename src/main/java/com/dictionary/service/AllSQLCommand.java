@@ -30,9 +30,9 @@ public class AllSQLCommand {
     public String getCommand(int number) {
         if (number == 1) {
             command = SearchEn;
-        } else if (number == 2) {
-            command = SearchRu;
         } else if (number == 3) {
+            command = SearchRu;
+        } else if (number == 2) {
             command = SearchEnLike;
         } else if (number == 4) {
             command = SearchRuLike;
