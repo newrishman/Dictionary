@@ -25,6 +25,7 @@ public class RusRecordDaoJdbc implements RusRecordDao {
         }
 
         for (int x = 3; x < inputs.length; x++) {
+
             service = new Service();
             connection = service.getConnection();
 
