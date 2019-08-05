@@ -127,17 +127,14 @@ public class Service {
             preparedStatement.setLong(2, rusId);
 
             resultSet = preparedStatement.executeQuery();
-            resultSet.next();
-            if ( resultSet.getLong(1) == engId & resultSet.getLong(2) == rusId ){
-                return true;
-            } else {
-                return false;
+            while (resultSet.next()) {
+                if (resultSet.getLong(1) == engId & resultSet.getLong(2) == rusId) {
+                    return true;
+                }
             }
-
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return true;
+        return false;
     }
 }
