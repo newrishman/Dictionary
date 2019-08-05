@@ -113,5 +113,31 @@ public class Service {
             System.err.println("Запись не прошла");
             e.printStackTrace();
         }
+
+    }
+
+    public boolean searchId(int com, long engId, long rusId) {
+
+        allSQLCommand = new AllSQLCommand();
+        command = allSQLCommand.getCommand(com);
+
+        try {
+            preparedStatement = connection.prepareStatement(command);
+            preparedStatement.setLong(1, engId);
+            preparedStatement.setLong(2, rusId);
+
+            resultSet = preparedStatement.executeQuery();
+            resultSet.next();
+            if ( resultSet.getLong(1) == engId & resultSet.getLong(2) == rusId ){
+                return true;
+            } else {
+                return false;
+            }
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return true;
     }
 }

@@ -17,10 +17,10 @@ public class RusRecordDaoJdbc implements RusRecordDao {
         connection = service.getConnection();
 
         word = inputs[2];
-        // команда 6 - поиск русского id
+        // команда #6 - поиск русского id
         rusId = service.searchId(6, word);
         if (rusId == null) {
-            // команда 8 - запись русского слова
+            // команда #8 - запись русского слова
             rusId = service.recordWord(8, word);
         }
 
@@ -30,16 +30,18 @@ public class RusRecordDaoJdbc implements RusRecordDao {
             connection = service.getConnection();
 
             word = inputs[x];
-            // команда 5 - поиск английского id
+            // команда #5 - поиск английского id
             engId = service.searchId(5, word);
             if (engId == null) {
-                // команда 7 - запись английского слова
+                // команда #7 - запись английского слова
                 engId = service.recordWord(7, word);
 
             }
-            // команда 9 - запись русского и английского ID
-            service.recordId(9, engId, rusId);
-
+            // команда #10 - проверка на дубликаты
+            if (!service.searchId(10, engId, rusId)) {
+                // команда #9 - запись русского и английского ID
+                service.recordId(9, engId, rusId);
+            }
         }
     }
 }

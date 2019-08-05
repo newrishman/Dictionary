@@ -28,6 +28,8 @@ public class AllSQLCommand {
 
     private final String searchIdRus = "select idRus from Rus where Russians = ?;";
 
+    private final String searchId = "select * from `Eng-Ru` where `idEng` = ? and `idRus` = ? ;";
+
     private String command;
 
 
@@ -48,8 +50,10 @@ public class AllSQLCommand {
             command = insertEn;
         } else if (number == 8) {
             command = insertRu;
+        } else if (number == 9) {
+            command = insertId;
         } else {
-            command =insertId;
+            command =searchId;
         }
         return command;
     }

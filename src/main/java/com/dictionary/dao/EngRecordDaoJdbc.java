@@ -37,9 +37,11 @@ public class EngRecordDaoJdbc implements EngRecordDao {
                 rusId = service.recordWord(8, word);
 
             }
-            // команда #9 - запись русского и английского ID
-            service.recordId(9, engId, rusId);
-
+            // команда #10 - проверка на дубликаты
+            if (!service.searchId(10, engId, rusId)) {
+                // команда #9 - запись русского и английского ID
+                service.recordId(9, engId, rusId);
+            }
         }
     }
 }
